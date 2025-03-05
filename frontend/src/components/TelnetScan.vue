@@ -5,12 +5,11 @@
     <button @click="scanIp">Scan</button>
 
     <!-- Display loading message or error if necessary -->
-    <div v-if="telnetStore.scanResult === null && ipAddress !== ''">
+    <div v-if="telnetStore.isLoading">
       <p>Loading scan results...</p>
     </div>
-
     <!-- Display scan results once available -->
-    <div v-if="telnetStore.scanResult !== null">
+    <div v-if="telnetStore.scanResult !== null && !telnetStore.isLoading">
       <h3>Scan Results for {{ ipAddress }}</h3>
       <p><strong>Status:</strong> {{ telnetStore.scanResult.host_status }}</p>
       
