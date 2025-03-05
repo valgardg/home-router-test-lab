@@ -5,6 +5,6 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   server: {
-    allowedHosts: ['raspberrypi.local'],
+    allowedHosts: ['raspberrypi.local', 'raspi.valgard.org'],
   },
 })
