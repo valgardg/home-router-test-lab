@@ -21,7 +21,7 @@ export const useTelnetStore = defineStore('telnet', {
       try {
         this.isLoading = true;
         console.log('Scanning IP:', ipAddress);
-        const response = await axios.post(`http://raspberrypi.local:8000/telnet-scan/${ipAddress}`);
+        const response = await axios.post(`https://raspberrypi.local:8000/telnet-scan/${ipAddress}`);
         console.log('Scan result:', response.data);
         this.scanResult = response.data as ScanResult;
       } catch (error) {
