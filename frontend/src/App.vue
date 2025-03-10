@@ -1,13 +1,15 @@
-<script setup lang="ts">
-import TelnetScan from './components/TelnetScan.vue';
-</script>
-
 <template>
   <div>
     <h1>Home Router Test Lab</h1>
+    <p>API Base URL: {{ API_BASE_URL }}</p>
     <TelnetScan />
   </div>
 </template>
+
+<script setup lang="ts">
+import TelnetScan from './components/TelnetScan.vue';
+import { API_BASE_URL } from './config';
+</script>
 
 <style scoped>
 .logo {

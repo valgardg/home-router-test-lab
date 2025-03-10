@@ -3,11 +3,19 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import subprocess
 import re
+import os
 app = FastAPI()
+
+ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
+FRONTEND_URL = os.getenv("FRONTEND_URL", "https://raspi.valgard.org")
+
+origins = ["http://localhost:5173"] if ENVIRONMENT == "development" else [FRONTEND_URL]
+
+print(f"origins: {origins}")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change this to your frontend's URL for security
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
